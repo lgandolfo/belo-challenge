@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { OrderType } from 'helpers/enums/orderType';
+import { OrderType } from 'src/helpers/enums/orderType';
 
 @Entity({ name: 'estimated_orders' })
 export class EstimatedOrder {
