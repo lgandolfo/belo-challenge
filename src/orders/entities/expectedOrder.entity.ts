@@ -7,12 +7,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { OrderType } from 'src/helpers/enums/orderType';
+import { OrderType } from '../../helpers/enums/orderType';
 
 @Entity({ name: 'estimated_orders' })
 export class EstimatedOrder {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @Column()
   pair: string;
@@ -20,14 +20,14 @@ export class EstimatedOrder {
   @Column()
   side: OrderType;
 
-  @Column()
+  @Column({ type: 'decimal', scale: 5 })
   volume: number;
 
-  @Column()
+  @Column({ type: 'decimal', scale: 5 })
   estimatedPrice: number;
 
   @Column({ type: 'timestamp' })
-  expirationDate: string;
+  expirationDate: Date;
 
   @CreateDateColumn({
     type: 'timestamp',

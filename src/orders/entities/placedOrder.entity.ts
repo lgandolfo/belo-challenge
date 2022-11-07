@@ -9,11 +9,20 @@ import {
 
 @Entity({ name: 'placed_orders' })
 export class PlacedOrder {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('increment')
   id: string;
 
-  @Column({ length: 255, select: false })
-  password: string;
+  @Column()
+  estimatedOrderId: number;
+
+  @Column()
+  okexOrderId: string;
+
+  @Column({ type: 'decimal', scale: 5 })
+  estimatedPrice: number;
+
+  @Column({ type: 'decimal', scale: 5 })
+  placedPrice: number;
 
   @CreateDateColumn({
     type: 'timestamp',
