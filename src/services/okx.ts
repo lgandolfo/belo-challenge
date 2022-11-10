@@ -76,5 +76,5 @@ export const getAveragePrice = async (
     `${process.env.OKX_BASE_URL}/trade/order?instId=${pair}&ordId=${orderId}`,
     config,
   );
-  return parseInt(data.data[0].avgPx, 10);
+  return +data.data[0].avgPx;
 };
